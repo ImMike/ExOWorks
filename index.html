@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExO.Works - Transforming Education with AI</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232563eb'/%3E%3Ctext x='50' y='65' font-family='Inter, sans-serif' font-size='50' font-weight='600' fill='white' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -26,12 +27,27 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-image-container">
-                <div class="hero-content">
+            <div class="hero-content-wrapper">
+                <div class="hero-text">
                     <h1>AI Education</h1>
                     <p>AI is transforming every aspect of society.</p>
                     <p>Every educational institution is now scrambling to best prepare for the AI turmoil impacting 2/3 jobs worldwide while also continuing to attract the best students and compete in the market.</p>
                     <button class="btn-primary btn-large" onclick="document.getElementById('benefits').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+                </div>
+                
+                <div class="hero-video">
+                    <div class="video-preview" onclick="playVideo(this)">
+                        <video id="heroVideo" poster="images/exoworksvideo.jpg">
+                            <source src="images/ExO Works Promo 2 Edited.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="play-button">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="40" fill="rgba(37, 99, 235, 0.9)"/>
+                                <polygon points="32,25 32,55 55,40" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,67 +166,7 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team">
-        <div class="container">
-            <h2>Our Team</h2>
-            <p>ExO.Works' proven team is driving one of the world's fastest growing AI startups, with the experience and talent to grow and manage global operations.</p>
-            
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-photo">
-                        <img src="images/salim_ismail.jpg" alt="Salim Ismail">
-                    </div>
-                    <h4>Salim Ismail</h4>
-                </div>
-                
-                <div class="team-member">
-                    <div class="member-photo">
-                        <img src="images/eric_pulier.jpg" alt="Eric Pulier">
-                    </div>
-                    <h4>Eric Pulier</h4>
-                </div>
-                
-                <div class="team-member">
-                    <div class="member-photo">
-                        <img src="images/greg_pulier.jpg" alt="Greg Pulier">
-                    </div>
-                    <h4>Greg Pulier</h4>
-                </div>
-            </div>
-            
-            <!-- Team Positions Section -->
-            <div class="team-positions">
-                <div class="positions-container">
-                    <div class="position-category">
-                        <h3>Core Team</h3>
-                        <div class="positions-list">
-                            <div class="position-item">Chief Architect</div>
-                            <div class="position-item">Engineering Teams</div>
-                            <div class="position-item">AI Experts</div>
-                            <div class="position-item">Project Management</div>
-                            <div class="position-item">Product Management</div>
-                            <div class="position-item">Support Leads</div>
-                            <div class="position-item">Business Development</div>
-                            <div class="position-item">Sales Team</div>
-                        </div>
-                    </div>
-                    
-                    <div class="position-category">
-                        <h3>Expansion Roles</h3>
-                        <div class="positions-list">
-                            <div class="position-item">Engineering Expansion</div>
-                            <div class="position-item">Sales Expansion</div>
-                            <div class="position-item">DevOps & Security</div>
-                            <div class="position-item">General Counsel</div>
-                            <div class="position-item">Account Management</div>
-                            <div class="position-item">Partner Management</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Video CTA Section - Removed since video is now in hero -->
 
     <!-- CTA Section - Hidden for now -->
     <!--
@@ -235,5 +191,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function playVideo(element) {
+            const video = element.querySelector('video');
+            const playButton = element.querySelector('.play-button');
+            
+            if (video.paused) {
+                video.controls = true;
+                video.play();
+                playButton.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html> 
