@@ -32,7 +32,7 @@ fi
 
 # Run the new container and save its ID to the container.id file for future reference
 echo "Starting new container..."
-NEW_CONTAINER_ID=$(sudo docker run --env-file=/.env -dp 8765:80 exoworks:latest)
+NEW_CONTAINER_ID=$(sudo docker run --env-file=.env -dp 8765:80 exoworks:latest)
 echo $NEW_CONTAINER_ID > container.id
 
 echo "Container started with ID: $NEW_CONTAINER_ID"
