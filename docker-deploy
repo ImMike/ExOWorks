@@ -1,5 +1,16 @@
 #!/bin/sh
 
+# Check if .env file exists
+if [ ! -f ".env" ]; then
+    echo "Error: .env file not found!"
+    echo "Please create a .env file with VIRTUAL_HOST=your-domain.com"
+    exit 1
+fi
+
+# Show environment variables being used
+echo "Environment variables being baked into image:"
+cat .env
+
 # Build the new Docker image first. This ensures that the new image is ready
 # before taking down the existing container, minimizing downtime.
 echo "Building new Docker image..."
@@ -21,7 +32,13 @@ fi
 
 # Run the new container and save its ID to the container.id file for future reference
 echo "Starting new container..."
-NEW_CONTAINER_ID=$(sudo docker run --env-file=.env -dp 8765:80 exoworks:latest)
+NEW_CONTAINER_ID=$(sudo docker run --env-file=/.env -dp 8765:80 exoworks:latest)
 echo $NEW_CONTAINER_ID > container.id
 
-echo "Deployment complete." 
+echo "Container started with ID: $NEW_CONTAINER_ID"
+echo "Container is running on port 8765"
+echo "Deployment complete."
+
+# Show running container info
+echo "Container status:"
+sudo docker ps | grep exoworks 

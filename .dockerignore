@@ -1,6 +1,5 @@
 .git
 .gitignore
-.env
 docker-deploy
 container.id
 README.md
